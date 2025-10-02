@@ -1,0 +1,139 @@
+
+<!-- 
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Paras-289/Order-Form.git
+git push -u origin main -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Me Pure RO Purifier Order Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: auto;
+    }
+    input, textarea, select, button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .product-row {
+      display: grid;
+      grid-template-columns: 40px 1fr 100px;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .product-row input[type="number"] {
+      text-align: center;
+    }
+    .subheading {
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align: center; font-family: 'Times New Roman'">Drink Pure Water with Mepure</h2>
+
+  <div style="text-align: center; font-family: 'Times New Roman', Times, serif; font-size: 20px; margin-bottom: 10px;">
+  Me Pure RO Purifier Order Form
+  </div>
+
+  <form id="orderForm">
+
+  <form id="orderForm">
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="tel" id="contact" placeholder="Contact No." required />
+    <input type="text" id="address" placeholder="Address" required />
+    <input type="text" id="city" placeholder="City" required />
+    <input type="text" id="pincode" placeholder="PIN Code" required />
+
+    <label>Select Products & Quantity:</label>
+    <div id="products">
+      <div class="product-row"><input type="checkbox" value="MEMBRANE" /><label>MEMBRANE</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="PUMP" /><label>PUMP</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="SMPS" /><label>SMPS</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="SEDIMENT" /><label>SEDIMENT</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="CARBON" /><label>CARBON</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="TDS METER" /><label>TDS METER</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="ALKALINE" /><label>ALKALINE</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="F.R" /><label>F.R</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="ROYAL THREAD CANDLE" /><label>ROYAL THREAD CANDLE</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="MINERAL CARTRADGE" /><label>MINERAL CARTRADGE</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="20'' THREAD CANDLE" /><label>20'' THREAD CANDLE</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="MEMBRANE HOUSING" /><label>MEMBRANE HOUSING</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="BOWL" /><label>BOWL</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="UF" /><label>UF</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="ACTIVE COPPER" /><label>ACTIVE COPPER</label><input type="number" min="1" placeholder="Qty" /></div>
+    </div>
+
+    <label for="payment">Payment Method:</label>
+    <select id="payment" required>
+      <option value="">Select Payment Method</option>
+      <option value="UPI">UPI</option>
+      <option value="Cash/POD">Cash / Pay on Delivery</option>
+    </select>
+
+    <button type="submit">Send via WhatsApp</button>
+  </form>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const city = document.getElementById('city').value.trim();
+      const pincode = document.getElementById('pincode').value.trim();
+      const payment = document.getElementById('payment').value;
+
+      const productRows = document.querySelectorAll('#products .product-row');
+      let productDetails = '';
+      productRows.forEach(row => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        const qtyInput = row.querySelector('input[type="number"]');
+        if (checkbox.checked && qtyInput.value) {
+          productDetails += `\n- ${checkbox.value}: ${qtyInput.value}`;
+        }
+      });
+
+      const message = `RO Purifier Order:\nName: ${name}\nContact: ${contact}\nAddress: ${address}\nCity: ${city}\nPIN Code: ${pincode}\nPayment Method: ${payment}\nProducts:${productDetails}`;
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappLink = `https://wa.me/918607208488?text=${encodedMessage}`;
+
+      alert("You'll be redirected to WhatsApp. Please tap 'Send' to submit your order.");
+      window.open(whatsappLink, '_blank');
+    });
+  </script>
+
+</body>
+</html>
