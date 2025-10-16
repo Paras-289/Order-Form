@@ -1,12 +1,3 @@
-
-<!-- 
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Paras-289/Order-Form.git
-git push -u origin main -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,44 +49,48 @@ git push -u origin main -->
       font-size: 20px;
       margin-bottom: 10px;
     }
+    @media (max-width: 600px) {
+      .product-row {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
 
   <h2 style="text-align: center; font-family: 'Times New Roman'">Drink Pure Water with Mepure</h2>
-
-  <div style="text-align: center; font-family: 'Times New Roman', Times, serif; font-size: 20px; margin-bottom: 10px;">
-  Me Pure RO Purifier Order Form
-  </div>
+  <div class="subheading">Me Pure RO Purifier Order Form</div>
 
   <form id="orderForm">
-
-  <form id="orderForm">
+    <h3 class="subheading">Customer Details</h3>
     <input type="text" id="name" placeholder="Name" required />
     <input type="tel" id="contact" placeholder="Contact No." required />
     <input type="text" id="address" placeholder="Address" required />
     <input type="text" id="city" placeholder="City" required />
     <input type="text" id="pincode" placeholder="PIN Code" required />
 
+    <h3 class="subheading">Product Selection</h3>
     <label>Select Products & Quantity:</label>
     <div id="products">
-      <div class="product-row"><input type="checkbox" value="MEMBRANE" /><label>MEMBRANE</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="PUMP" /><label>PUMP</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="SMPS" /><label>SMPS</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="SEDIMENT" /><label>SEDIMENT</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="CARBON" /><label>CARBON</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="TDS METER" /><label>TDS METER</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="ALKALINE" /><label>ALKALINE</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="F.R" /><label>F.R</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="ROYAL THREAD CANDLE" /><label>ROYAL THREAD CANDLE</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="MINERAL CARTRADGE" /><label>MINERAL CARTRADGE</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="20'' THREAD CANDLE" /><label>20'' THREAD CANDLE</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="MEMBRANE HOUSING" /><label>MEMBRANE HOUSING</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="BOWL" /><label>BOWL</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="UF" /><label>UF</label><input type="number" min="1" placeholder="Qty" /></div>
-      <div class="product-row"><input type="checkbox" value="ACTIVE COPPER" /><label>ACTIVE COPPER</label><input type="number" min="1" placeholder="Qty" /></div>
+      <!-- Each checkbox has a data-price attribute -->
+      <div class="product-row"><input type="checkbox" value="MEMBRANE" data-price="850" /><label>MEMBRANE (₹850)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="PUMP" data-price="1200" /><label>PUMP (₹1200)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="SMPS" data-price="450" /><label>SMPS (₹450)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="SEDIMENT" data-price="150" /><label>SEDIMENT (₹150)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="CARBON" data-price="200" /><label>CARBON (₹200)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="TDS METER" data-price="300" /><label>TDS METER (₹300)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="ALKALINE" data-price="600" /><label>ALKALINE (₹600)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="F.R" data-price="100" /><label>F.R (₹100)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="ROYAL THREAD CANDLE" data-price="250" /><label>ROYAL THREAD CANDLE (₹250)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="MINERAL CARTRADGE" data-price="500" /><label>MINERAL CARTRADGE (₹500)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="20'' THREAD CANDLE" data-price="300" /><label>20'' THREAD CANDLE (₹300)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="MEMBRANE HOUSING" data-price="400" /><label>MEMBRANE HOUSING (₹400)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="BOWL" data-price="350" /><label>BOWL (₹350)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="UF" data-price="700" /><label>UF (₹700)</label><input type="number" min="1" placeholder="Qty" /></div>
+      <div class="product-row"><input type="checkbox" value="ACTIVE COPPER" data-price="950" /><label>ACTIVE COPPER (₹950)</label><input type="number" min="1" placeholder="Qty" /></div>
     </div>
 
+    <h3 class="subheading">Payment Info</h3>
     <label for="payment">Payment Method:</label>
     <select id="payment" required>
       <option value="">Select Payment Method</option>
@@ -118,15 +113,33 @@ git push -u origin main -->
 
       const productRows = document.querySelectorAll('#products .product-row');
       let productDetails = '';
-      productRows.forEach(row => {
+      let totalItems = 0;
+      let totalCost = 0;
+
+      for (let row of productRows) {
         const checkbox = row.querySelector('input[type="checkbox"]');
         const qtyInput = row.querySelector('input[type="number"]');
-        if (checkbox.checked && qtyInput.value) {
-          productDetails += `\n- ${checkbox.value}: ${qtyInput.value}`;
-        }
-      });
+        const price = parseFloat(checkbox.getAttribute('data-price'));
 
-      const message = `RO Purifier Order:\nName: ${name}\nContact: ${contact}\nAddress: ${address}\nCity: ${city}\nPIN Code: ${pincode}\nPayment Method: ${payment}\nProducts:${productDetails}`;
+        if (checkbox.checked) {
+          const qty = parseInt(qtyInput.value);
+          if (!qty || qty < 1) {
+            alert(`Please enter a valid quantity for ${checkbox.value}`);
+            return;
+          }
+          const itemCost = qty * price;
+          productDetails += `\n- ${checkbox.value}: ${qty} x ₹${price} = ₹${itemCost}`;
+          totalItems += qty;
+          totalCost += itemCost;
+        }
+      }
+
+      if (!productDetails) {
+        alert("Please select at least one product and enter quantity.");
+        return;
+      }
+
+      const message = `RO Purifier Order:\nName: ${name}\nContact: ${contact}\nAddress: ${address}\nCity: ${city}\nPIN Code: ${pincode}\nPayment Method: ${payment}\nProducts:${productDetails}\nTotal Items: ${totalItems}\nTotal Cost: ₹${totalCost}`;
       const encodedMessage = encodeURIComponent(message);
       const whatsappLink = `https://wa.me/917206008778?text=${encodedMessage}`;
 
